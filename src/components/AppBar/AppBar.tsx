@@ -1,21 +1,25 @@
+import type { JSX } from "react";
 import type { AppBarProps } from "../../types/types.ts";
-import { appBarStyles, toolbarStyles } from "./appBarStyles";
+import { appBarStyles, toolbarStyles, typographyStyles } from "./appBarStyles";
 
-import { AppBar, IconButton, Toolbar } from "@mui/material";
+import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import WidgetsIcon from "@mui/icons-material/Widgets";
 
-const AppBarComponent = ({ toggleDrawer }: AppBarProps) => {
+const AppBarComponent = ({
+	pageTitleName,
+	toggleDrawer,
+}: AppBarProps): JSX.Element => {
 	return (
 		<AppBar sx={appBarStyles}>
 			<Toolbar sx={toolbarStyles}>
 				<IconButton
-					size="large"
+					size="small"
 					edge="start"
 					aria-label="menu"
 					color="inherit"
 					onClick={toggleDrawer}
 					sx={{
-						width: "50px",
+						width: "30px",
 						padding: 0,
 						borderRadius: "none",
 						transition: "all 0.5s ease 0s",
@@ -30,6 +34,9 @@ const AppBarComponent = ({ toggleDrawer }: AppBarProps) => {
 				>
 					<WidgetsIcon fontSize="large" />
 				</IconButton>
+				<Typography component="h1" sx={typographyStyles}>
+					{pageTitleName}
+				</Typography>
 			</Toolbar>
 		</AppBar>
 	);

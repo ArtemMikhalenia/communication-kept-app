@@ -9,6 +9,7 @@ import type {
 export type AlertSeverity = "error" | "warning" | "info" | "success";
 
 export type AppBarProps = {
+	pageTitleName: string;
 	toggleDrawer: () => void;
 };
 
@@ -36,6 +37,6 @@ export type SnackbarProps = {
 };
 
 export type TrainingContextType = {
-  currentTrainingId: string;
-  setCurrentTrainingId: (id: string) => void;
+	currentTrainingId: string;
+	setCurrentTrainingId: (id: string) => void;
 };

@@ -7,9 +7,6 @@ export const theme = createTheme({
 			light: "rgba(163,156,255,1)",
 			dark: "rgba(83,26,86,1)",
 		},
-		// custom: {
-		// 	main: "",
-		// },
 	},
 	typography: {
 		fontFamily: ["Manrope, sans-serif", "Caveat, cursive"].join(","),

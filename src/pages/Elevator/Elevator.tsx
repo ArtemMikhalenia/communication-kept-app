@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
 
@@ -7,7 +8,7 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 import "./elevatorStyles.scss";
 
-const Elevator = () => {
+const Elevator = (): JSX.Element => {
 	return (
 		<motion.div
 			key="elevator-page"

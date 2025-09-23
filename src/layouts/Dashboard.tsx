@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type JSX } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import type { DashboardData } from "../interfaces/interfaces.ts";
@@ -25,14 +25,32 @@ import floor15Background from "../assets/images/backgrounds/15_floor.jpg";
 import floor16Background from "../assets/images/backgrounds/16_floor.jpg";
 import floor17Background from "../assets/images/backgrounds/17_floor.jpg";
 
-const Dashboard = () => {
+const Dashboard = (): JSX.Element => {
 	const location = useLocation();
 	const [background, setBackground] = useState("");
 	const currentLocation: string = location.pathname.slice(1);
-
 	const [openDrawer, setOpenDrawer] = useState(false);
+	const [pageTitle, setPageTitle] = useState("");
 
-	const toggleDrawer = () => setOpenDrawer(!openDrawer);
+	const toggleDrawer = (): void => setOpenDrawer(!openDrawer);
+
+	const locationName = location.pathname;
+
+	useEffect(() => {
+		switch (locationName) {
+			case "/hall/floor15":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor16":
+				setPageTitle("Блок 2 - Практическое задание по коммуникации");
+				break;
+			case "/hall/floor17":
+				setPageTitle("Блок 3 - Ситуационная модель - переписка с юзером");
+				break;
+			default:
+				break;
+		}
+	}, [location.pathname]);
 
 	const dashboardData: DashboardData[] = [
 		{
@@ -43,13 +61,15 @@ const Dashboard = () => {
 
 	const DrawerList = (
 		<List>
-			{dashboardData.map((link, id) => (
-				<Link to={link.link} key={id} onClick={toggleDrawer}>
-					<ListItemButton sx={listItemButtonStyles}>
-						<ListItemText primary={link.pageTitle} sx={listItemColorStyles} />
-					</ListItemButton>
-				</Link>
-			))}
+			{dashboardData.map(
+				(item: DashboardData, id: number): JSX.Element => (
+					<Link to={item.link} key={id} onClick={toggleDrawer}>
+						<ListItemButton sx={listItemButtonStyles}>
+							<ListItemText primary={item.pageTitle} sx={listItemColorStyles} />
+						</ListItemButton>
+					</Link>
+				)
+			)}
 		</List>
 	);
 
@@ -77,7 +97,7 @@ const Dashboard = () => {
 			style={{
 				display: "grid",
 				gridTemplateColumns: "1fr",
-				gridTemplateRows: "50px 1fr",
+				gridTemplateRows: "64px 1fr",
 				gap: "10px",
 				height: "100vh",
 				backgroundImage: `url(${background})`,
@@ -86,7 +106,7 @@ const Dashboard = () => {
 				backgroundRepeat: "no-repeat",
 			}}
 		>
-			<AppBarComponent toggleDrawer={toggleDrawer} />
+			<AppBarComponent pageTitleName={pageTitle} toggleDrawer={toggleDrawer} />
 
 			<SwipeableDrawer
 				anchor="left"

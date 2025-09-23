@@ -39,7 +39,7 @@ export const buttonDrawerStyles = {
 export const mainBlockStyles = {
 	maxWidth: "100%",
 	width: "100%",
-	padding: "0px 15px 100px",
+	padding: "0px 15px 10px",
 	overflowY: "scroll",
 	scrollbarWidth: "none",
 };
