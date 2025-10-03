@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import type { JSX } from "react";
+import { Link } from "react-router-dom";
 
 import { motion } from "motion/react";
 

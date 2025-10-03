@@ -1,0 +1,208 @@
+@import "../../variables";
+
+.block1-9-page {
+	position: relative;
+	height: 100%;
+	background: linear-gradient(90deg, $blur-black, $box-shadow-grey-transparent);
+	backdrop-filter: blur(5px);
+	box-shadow: 0px 5px 25px $box-shadow-black;
+	border-radius: 5px;
+	border: 1px solid $color-white;
+
+	h5 {
+		font-size: 34px;
+		font-weight: 700;
+
+		color: $secondary-main;
+		text-shadow: 1px 1px 1px $color-white;
+		text-decoration: underline;
+	}
+
+	div.MuiListItemAvatar-root.css-1ulznza-MuiListItemAvatar-root {
+		min-width: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	ul {
+		li {
+			padding: 0;
+			gap: 10px;
+			color: $secondary-main;
+
+			span {
+				font-size: 25px;
+				font-weight: 600;
+			}
+		}
+	}
+
+	.pencil-block1-9 {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		opacity: 0;
+		z-index: 0;
+		transition: all 0.5s ease 0s;
+		transform: translate(-150%, -150%);
+
+		&.activeTop {
+			opacity: 1;
+			animation: animateTop 2s ease-in-out forwards;
+		}
+
+		&.activeTop1 {
+			opacity: 1;
+			animation: animateTop 2s ease-in-out forwards;
+		}
+
+		&.activeBottom {
+			opacity: 1;
+			animation: animateBottom 2s ease-in-out forwards;
+		}
+
+		&.activeBottom1 {
+			opacity: 1;
+			animation: animateBottom 2s ease-in-out forwards;
+		}
+
+		&.activeRight {
+			opacity: 1;
+			animation: animateRight 2s ease-in-out forwards;
+		}
+
+		&.activeRight1 {
+			opacity: 1;
+			animation: animateRight 2s ease-in-out forwards;
+		}
+
+		&.activeLeft {
+			opacity: 1;
+			animation: animateLeft 2s ease-in-out forwards;
+		}
+
+		&.activeLeft1 {
+			opacity: 1;
+			animation: animateLeft 2s ease-in-out forwards;
+		}
+
+		img {
+			max-width: 250px;
+			width: 100%;
+		}
+
+		@keyframes animateTop {
+			0% {
+				transform: translate(0%, -350%);
+				opacity: 0;
+			}
+			15% {
+				transform: translate(0%, -150%);
+				opacity: 1;
+			}
+			20% {
+				transform: translate(0%, -160%);
+			}
+			25% {
+				transform: translate(0%, -150%);
+			}
+			75% {
+				transform: translate(0%, -150%);
+				opacity: 1;
+			}
+			85% {
+				transform: translate(0%, -160%);
+				opacity: 0.8;
+			}
+			100% {
+				transform: translate(0%, -350%);
+				opacity: 0;
+			}
+		}
+		@keyframes animateBottom {
+			0% {
+				transform: translate(0%, 350%);
+				opacity: 0;
+			}
+			15% {
+				transform: translate(0%, -150%);
+				opacity: 1;
+			}
+			20% {
+				transform: translate(0%, -140%);
+			}
+			25% {
+				transform: translate(0%, -150%);
+			}
+			75% {
+				transform: translate(0%, -150%);
+				opacity: 1;
+			}
+			85% {
+				transform: translate(0%, -140%);
+				opacity: 0.8;
+			}
+			100% {
+				transform: translate(0%, 350%);
+				opacity: 0;
+			}
+		}
+		@keyframes animateRight {
+			0% {
+				transform: translate(350%, -150%);
+				opacity: 0;
+			}
+			15% {
+				transform: translate(0%, -150%);
+				opacity: 1;
+			}
+			20% {
+				transform: translate(2%, -150%);
+			}
+			25% {
+				transform: translate(0%, -150%);
+			}
+			75% {
+				transform: translate(0%, -150%);
+				opacity: 1;
+			}
+			85% {
+				transform: translate(2%, -150%);
+				opacity: 0.8;
+			}
+			100% {
+				transform: translate(350%, -150%);
+				opacity: 0;
+			}
+		}
+		@keyframes animateLeft {
+			0% {
+				transform: translate(-350%, -150%);
+				opacity: 0;
+			}
+			15% {
+				transform: translate(0%, -150%);
+				opacity: 1;
+			}
+			20% {
+				transform: translate(-2%, -150%);
+			}
+			25% {
+				transform: translate(0%, -150%);
+			}
+			75% {
+				transform: translate(0%, -150%);
+				opacity: 1;
+			}
+			85% {
+				transform: translate(-2%, -150%);
+				opacity: 0.8;
+			}
+			100% {
+				transform: translate(-350%, -150%);
+				opacity: 0;
+			}
+		}
+	}
+}

@@ -1,8 +1,9 @@
 import type { JSX } from "react";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 
 const RootLayout = (): JSX.Element => {
-	return <Outlet />;
+	const location = useLocation();
+	return <Outlet key={location.pathname} />;
 };
 
 export default RootLayout;

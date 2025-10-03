@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import type { DashboardData } from "../interfaces/interfaces.ts";
 
+import { MouseParallaxContainer } from "react-parallax-mouse";
+
 import AppBarComponent from "../components/AppBar/AppBar.tsx";
 
 import {
@@ -39,6 +41,33 @@ const Dashboard = (): JSX.Element => {
 	useEffect(() => {
 		switch (locationName) {
 			case "/hall/floor15":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor15/block1_2":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor15/block1_3":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor15/block1_4":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor15/block1_5":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor15/block1_6":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor15/block1_7":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor15/block1_8":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor15/block1_9":
+				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
+				break;
+			case "/hall/floor15/block1_10":
 				setPageTitle("Блок 1 - Теория и практика делового общения в ADC");
 				break;
 			case "/hall/floor16":
@@ -78,7 +107,18 @@ const Dashboard = (): JSX.Element => {
 			setBackground(hallBackground);
 		} else if (currentLocation === "hall/elevator") {
 			setBackground(elevatorBackground);
-		} else if (currentLocation === "hall/floor15") {
+		} else if (
+			currentLocation === "hall/floor15" ||
+			currentLocation === "hall/floor15/block1_2" ||
+			currentLocation === "hall/floor15/block1_3" ||
+			currentLocation === "hall/floor15/block1_4" ||
+			currentLocation === "hall/floor15/block1_5" ||
+			currentLocation === "hall/floor15/block1_6" ||
+			currentLocation === "hall/floor15/block1_7" ||
+			currentLocation === "hall/floor15/block1_8" ||
+			currentLocation === "hall/floor15/block1_9" ||
+			currentLocation === "hall/floor15/block1_10"
+		) {
 			setBackground(floor15Background);
 		} else if (currentLocation === "hall/floor16") {
 			setBackground(floor16Background);
@@ -98,7 +138,6 @@ const Dashboard = (): JSX.Element => {
 				display: "grid",
 				gridTemplateColumns: "1fr",
 				gridTemplateRows: "64px 1fr",
-				gap: "10px",
 				height: "100vh",
 				backgroundImage: `url(${background})`,
 				backgroundSize: "cover",
@@ -117,16 +156,18 @@ const Dashboard = (): JSX.Element => {
 			>
 				{DrawerList}
 			</SwipeableDrawer>
-			<AnimatePresence mode="wait">
-				<Container
-					component="main"
-					disableGutters
-					sx={mainBlockStyles}
-					maxWidth={false}
-				>
-					<Outlet />
-				</Container>
-			</AnimatePresence>
+			<MouseParallaxContainer>
+				<AnimatePresence mode="wait">
+					<Container
+						component="main"
+						disableGutters
+						sx={mainBlockStyles}
+						maxWidth={false}
+					>
+						<Outlet key={location.pathname} />
+					</Container>
+				</AnimatePresence>
+			</MouseParallaxContainer>
 		</motion.div>
 	);
 };

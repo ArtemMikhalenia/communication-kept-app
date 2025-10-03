@@ -1,42 +1,70 @@
-import type {
-	DatabaseCardInterface,
-	ExerciseCardInterface,
-	Notification,
-	PersonalCard,
-	UserInformation,
-} from "../interfaces/interfaces.ts";
-
-export type AlertSeverity = "error" | "warning" | "info" | "success";
+import type { ReactElement } from "react";
 
 export type AppBarProps = {
 	pageTitleName: string;
 	toggleDrawer: () => void;
 };
 
-export type PersonalCardData = PersonalCard;
-
-export type DatabaseCardData = DatabaseCardInterface;
-export type ExerciseCardData = ExerciseCardInterface;
-
-export type EditModalProps = {
-	openModal: boolean;
-	onClose: () => void;
-	data: UserInformation;
+export type AnimatedListProps = {
+	text: string[];
+	delayTime: number;
 };
 
-export type DatabaseModalProps = {
-	openModal: boolean;
-	onClose: () => void;
-	data: DatabaseCardInterface | null;
+export type CardBlock1_1Props = {
+	title: string;
+	list: string[];
+	color: string;
+	x: string;
+	y: string;
+	shadow: string;
+	top: string;
 };
 
-export type SnackbarProps = {
-	open: boolean;
-	onClose: () => void;
-	notification: Notification;
+export type CardBlock1_3Props = {
+	image: string;
+	title: string;
+	x: string;
+	y: string;
+	delayTime: number;
 };
 
-export type TrainingContextType = {
-	currentTrainingId: string;
-	setCurrentTrainingId: (id: string) => void;
+export type CardBlock1_4Props = {
+	icon: ReactElement;
+	title: string;
+	x: string;
+	delayTime: number;
+};
+
+export type CardBlock1_6Props = {
+	id: string | number;
+	title: string;
+	x: string;
+	delayTime: number;
+	isCorrect: boolean;
+	isClicked: boolean;
+	toggleCard?: (id: string | number) => void;
+};
+
+export type CardBlock1_7Props = {
+	icon: ReactElement;
+	title: string;
+	x: string;
+	delayTime: number;
+};
+
+export type CardBlock1_9Props = {
+	id: string | number;
+	title: string;
+	x: string;
+	delayTime: number;
+	isCorrect: boolean;
+	isClicked: boolean;
+	toggleCard?: (id: string | number) => void;
+};
+
+export type CardBlock1_10Props = {
+	icon: ReactElement;
+	text: string;
+	x: string;
+	delayTime: number;
 };
