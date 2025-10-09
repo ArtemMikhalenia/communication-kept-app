@@ -20,8 +20,8 @@ const CardBlock1_9 = ({
 	};
 	return (
 		<motion.div
-			initial={{ x: x }}
-			animate={{ x: 0 }}
+			initial={{ opacity: 0, x: x }}
+			animate={{ opacity: 1, x: 0 }}
 			transition={{
 				duration: 0.5,
 				ease: "easeOut",
@@ -44,6 +44,7 @@ const CardBlock1_9 = ({
 						position: "relative",
 						width: "100%",
 						height: "100%",
+						padding: "10px",
 						cursor: "pointer",
 						borderRadius: 2,
 						boxShadow: "5px 5px 1px 1px #42424280",
@@ -62,12 +63,12 @@ const CardBlock1_9 = ({
 				>
 					<CardContent
 						sx={{
-							paddingBottom: 0,
+							padding: 0,
 							height: "100%",
 							":last-child": { paddingBottom: "16px" },
 						}}
 					>
-						<Typography sx={{ fontSize: "18px", textAlign: "justify" }}>
+						<Typography sx={{ fontSize: "16px", textAlign: "justify" }}>
 							{title}
 						</Typography>
 					</CardContent>

@@ -1,0 +1,53 @@
+@import "../../variables";
+
+.floor15-page-layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 64px 1fr;
+	height: 100vh;
+	background-image: url("../../assets/images/backgrounds/15_floor.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	.floor15-page-container {
+		max-width: 100%;
+		width: 100%;
+		min-height: auto;
+		height: 100%;
+		padding: 10px 15px 10px;
+		overflow-y: scroll;
+		scrollbar-width: none;
+
+		.floor15-page {
+			position: relative;
+			height: 100%;
+
+			.floor15-page-icon-left {
+				position: absolute;
+				bottom: 20px;
+				left: 30px;
+				font-size: 50px;
+				color: #00d7bd;
+				transition: all 0.5s ease 0s;
+				cursor: pointer;
+				&:hover {
+					transform: scale(1.1);
+				}
+			}
+
+			.floor15-page-icon-right {
+				position: absolute;
+				bottom: 20px;
+				right: 30px;
+				font-size: 50px;
+				color: #00d7bd;
+				transition: all 0.5s ease 0s;
+				cursor: pointer;
+				&:hover {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+}

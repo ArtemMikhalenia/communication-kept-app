@@ -34,7 +34,6 @@ const CardBlock1_1 = ({
 			style={{
 				maxWidth: "400px",
 				width: "100%",
-				height: "auto",
 				alignSelf: "stretch",
 			}}
 		>
@@ -58,14 +57,13 @@ const CardBlock1_1 = ({
 					<Card
 						className="card"
 						sx={{
-							maxWidth: 360,
+							maxWidth: 400,
 							height: "100%",
 							cursor: "pointer",
 							background: color,
 							borderRadius: 0,
 							border: "none",
 							boxShadow: `5px 5px 1px 1px ${shadow}`,
-
 							transition: "all 0.5s ease 0s",
 							"&:hover": {
 								transform: "scale(1.04)",
@@ -82,7 +80,7 @@ const CardBlock1_1 = ({
 									{list.map(
 										(item: string, i: number): JSX.Element => (
 											<ListItem key={i}>
-												<ListItemAvatar>
+												<ListItemAvatar sx={{ minWidth: 0 }}>
 													<LabelImportantOutlineRoundedIcon />
 												</ListItemAvatar>
 												<ListItemText primary={item} />

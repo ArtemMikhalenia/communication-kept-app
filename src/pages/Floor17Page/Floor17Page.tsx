@@ -1,22 +1,61 @@
 import type { JSX } from "react";
 import { motion } from "motion/react";
+import {
+	MouseParallaxChild,
+	MouseParallaxContainer,
+} from "react-parallax-mouse";
+
+import { Outlet, useLocation } from "react-router";
+import AppBarComponent from "../../components/AppBar/AppBar";
+import { Container } from "@mui/material";
 
 import "./floor17PageStyles.scss";
-import { Typography } from "@mui/material";
 
 const Floor17Page = (): JSX.Element => {
+	const location = useLocation();
 	return (
-		<div className="floor17-page">
-			<motion.div
-				initial={{ opacity: 0, y: "-100%" }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+		<motion.div
+			className="floor17-page-layout"
+			initial={{ opacity: 0, y: "-100%" }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: "100%" }}
+			transition={{ duration: 0.5, ease: "easeOut" }}
+		>
+			<AppBarComponent
+				pageTitleName={"Блок 3 - Ситуационная модель - переписка с юзером"}
+			/>
+			<MouseParallaxContainer
+				className="parallax"
+				containerStyle={{ height: "100%" }}
 			>
-				<Typography variant="h3" color="secondary.main">
-					Блок 3 - Ситуационная модель - переписка с юзером
-				</Typography>
-			</motion.div>
-		</div>
+				<Container
+					component="main"
+					className="floor17-page-container"
+					disableGutters
+					key={location.pathname}
+					maxWidth={false}
+				>
+					<MouseParallaxChild
+						factorX={0.01}
+						factorY={0.01}
+						style={{ height: "100%" }}
+					>
+						<div className="floor17-page" style={{ height: "100%" }}>
+							<motion.div
+								key={location.pathname}
+								initial={{ opacity: 0, y: "-100%" }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: "100%" }}
+								transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+								style={{ height: "100%" }}
+							>
+								<Outlet />
+							</motion.div>
+						</div>
+					</MouseParallaxChild>
+				</Container>
+			</MouseParallaxContainer>
+		</motion.div>
 	);
 };
 

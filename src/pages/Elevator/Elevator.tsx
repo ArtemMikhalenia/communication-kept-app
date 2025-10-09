@@ -21,14 +21,14 @@ const Elevator = (): JSX.Element => {
 			<div className="elevator-buttons">
 				<div className="main-buttons">
 					<span className="elevator-btn inactive">14</span>
-					<Link to="/hall/floor15" className="elevator-btn">
+					<Link to="/floor15/block1_1" className="elevator-btn">
 						15
 					</Link>
-					<Link to="/hall/floor16" className="elevator-btn">
+					<Link to="/floor16" className="elevator-btn">
 						16
 					</Link>
 
-					<Link to="/hall/floor17" className="elevator-btn">
+					<Link to="/floor17" className="elevator-btn">
 						17
 					</Link>
 					<span className="elevator-btn inactive">10</span>
@@ -46,10 +46,10 @@ const Elevator = (): JSX.Element => {
 					<Link to="/hall" className="elevator-btn">
 						1
 					</Link>
-					<span className="elevator-btn inactive elevator-open">
+					<Link to="/last" className="elevator-btn elevator-open">
 						<ArrowLeftIcon sx={{ fontSize: "40px" }} />
 						<ArrowRightIcon sx={{ fontSize: "40px" }} />
-					</span>
+					</Link>
 					<span className="elevator-btn inactive elevator-close">
 						<ArrowRightIcon sx={{ fontSize: "40px" }} />
 						<ArrowLeftIcon sx={{ fontSize: "40px" }} />

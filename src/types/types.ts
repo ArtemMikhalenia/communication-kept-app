@@ -2,7 +2,21 @@ import type { ReactElement } from "react";
 
 export type AppBarProps = {
 	pageTitleName: string;
-	toggleDrawer: () => void;
+};
+
+export type appBarStylesProps = {
+	position: string;
+	background: string;
+	backdropFilter: string;
+	height: string;
+	minHeight: string;
+};
+
+export type typographyStylesProps = {
+	flexGrow: number;
+	fontSize: string;
+	fontWeight: number;
+	color?: string;
 };
 
 export type AnimatedListProps = {

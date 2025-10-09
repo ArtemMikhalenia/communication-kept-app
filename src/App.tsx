@@ -1,3 +1,4 @@
+import { type JSX } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./theme.ts";
@@ -6,7 +7,6 @@ import { AnimatePresence } from "framer-motion";
 import StartPage from "./pages/StartPage/StartPage";
 
 import RootLayout from "./layouts/RootLayout";
-import Dashboard from "./layouts/Dashboard.tsx";
 
 import Floor15Page from "./pages/Floor15Page/Floor15Page.tsx";
 import Block1_1Page from "./pages/Block1_1Page/Block1_1Page.tsx";
@@ -20,15 +20,18 @@ import Block1_8Page from "./pages/Block1_8Page/Block1_8Page.tsx";
 import Block1_9Page from "./pages/Block1_9Page/Block1_9Page.tsx";
 import Block1_10Page from "./pages/Block1_10Page/Block1_10Page.tsx";
 
+import Block2Page from "./pages/Block2Page/Block2Page.tsx";
+
+import Block3Page from "./pages/Block3Page/Block3Page.tsx";
+
 import Floor16Page from "./pages/Floor16Page/Floor16Page.tsx";
 import Floor17Page from "./pages/Floor17Page/Floor17Page.tsx";
 import Elevator from "./pages/Elevator/Elevator.tsx";
 import Hall from "./pages/Hall/Hall.tsx";
-import type { JSX } from "react";
+import LastPage from "./pages/LastPage/LastPage.tsx";
 
 function AnimatedRoutes() {
 	const location = useLocation();
-	// const key = location.pathname.split("/")[1] || "root";
 
 	const getRouteKey = (pathname: string) => {
 		const segments = pathname.split("/").filter((segment) => segment !== "");
@@ -43,27 +46,27 @@ function AnimatedRoutes() {
 			<Routes location={location} key={routeKey}>
 				<Route path="/" element={<RootLayout />}>
 					<Route index element={<StartPage />} />
+					<Route path="/last" element={<LastPage />} />
 				</Route>
-
-				<Route path="/hall" element={<Dashboard />}>
-					<Route index element={<Hall />} />
-					<Route path="elevator" element={<Elevator />} />
-
-					<Route path="floor15" element={<Floor15Page />}>
-						<Route index element={<Block1_1Page />} />
-						<Route path="block1_2" element={<Block1_2Page />} />
-						<Route path="block1_3" element={<Block1_3Page />} />
-						<Route path="block1_4" element={<Block1_4Page />} />
-						<Route path="block1_5" element={<Block1_5Page />} />
-						<Route path="block1_6" element={<Block1_6Page />} />
-						<Route path="block1_7" element={<Block1_7Page />} />
-						<Route path="block1_8" element={<Block1_8Page />} />
-						<Route path="block1_9" element={<Block1_9Page />} />
-						<Route path="block1_10" element={<Block1_10Page />} />
-					</Route>
-
-					<Route path="floor16" element={<Floor16Page />} />
-					<Route path="floor17" element={<Floor17Page />} />
+				<Route path="/elevator" element={<Elevator />} />
+				<Route path="/hall" element={<Hall />} />
+				<Route path="/floor15" element={<Floor15Page />}>
+					<Route path="block1_1" element={<Block1_1Page />} />
+					<Route path="block1_2" element={<Block1_2Page />} />
+					<Route path="block1_3" element={<Block1_3Page />} />
+					<Route path="block1_4" element={<Block1_4Page />} />
+					<Route path="block1_5" element={<Block1_5Page />} />
+					<Route path="block1_6" element={<Block1_6Page />} />
+					<Route path="block1_7" element={<Block1_7Page />} />
+					<Route path="block1_8" element={<Block1_8Page />} />
+					<Route path="block1_9" element={<Block1_9Page />} />
+					<Route path="block1_10" element={<Block1_10Page />} />
+				</Route>
+				<Route path="/floor16" element={<Floor16Page />}>
+					<Route index element={<Block2Page />} />
+				</Route>
+				<Route path="/floor17" element={<Floor17Page />}>
+					<Route index element={<Block3Page />} />
 				</Route>
 			</Routes>
 		</AnimatePresence>

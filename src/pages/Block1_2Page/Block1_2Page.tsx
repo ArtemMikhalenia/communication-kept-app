@@ -13,86 +13,82 @@ import "./block1_2PageStyles.scss";
 
 const Block1_2Page = (): JSX.Element => {
 	return (
-		<MouseParallaxChild
-			factorX={0.01}
-			factorY={0.01}
-			style={{ height: "100%" }}
+		<motion.div
+			key={location.pathname}
+			className="block1-2-page"
+			initial={{ x: "200%" }}
+			animate={{ x: 0 }}
+			exit={{ x: "-200%" }}
+			transition={{ duration: 0.5, ease: "easeOut" }}
+			style={{ display: "flex", flexDirection: "column" }}
 		>
 			<motion.div
-				className="block1-2-page"
 				initial={{ y: "-100%" }}
 				animate={{ y: 0 }}
 				transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-				style={{ display: "flex", flexDirection: "column" }}
+				style={{ flex: "0 1 20%" }}
+			>
+				<Typography
+					variant="h3"
+					color="secondary.main"
+					paddingTop="2vmin"
+					sx={{
+						fontWeight: "600",
+						textShadow: "2px 2px 2px #ffffff",
+					}}
+				>
+					Бизнес-коммуникация
+				</Typography>
+			</motion.div>
+
+			<Grid
+				container
+				columns={{ xs: 2 }}
+				spacing="20px"
+				justifyContent="center"
+				alignItems="center"
 			>
 				<motion.div
-					initial={{ y: "-100%" }}
-					animate={{ y: 0 }}
-					transition={{ duration: 0.5, ease: "easeOut", delay: 2 }}
-					style={{ flex: "0 1 20%" }}
+					initial={{ opacity: 0, x: "-200%" }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+					style={{
+						maxWidth: "800px",
+						height: "auto",
+						alignSelf: "stretch",
+					}}
 				>
-					<Typography
-						variant="h3"
-						color="secondary.main"
-						paddingTop="20px"
-						fontWeight={600}
-						sx={{
-							textShadow: "2px 2px 2px #ffffff",
-						}}
-					>
-						Бизнес-коммуникация
+					<Typography variant="h5" component="h5">
+						Особенности бизнес-коммуникации
 					</Typography>
+					<List>
+						{listItemData.map(
+							(item: ListItem_Props, i: number): JSX.Element => (
+								<ListItemAnimated
+									key={i}
+									text={item.text}
+									delayTime={item.delayTime}
+								/>
+							)
+						)}
+					</List>
 				</motion.div>
-
-				<Grid
-					container
-					columns={{ xs: 2 }}
-					spacing={4}
-					justifyContent="center"
-					alignItems="center"
+				<MouseParallaxChild
+					factorX={0.02}
+					factorY={0.02}
+					style={{ height: "100%" }}
 				>
 					<motion.div
-						initial={{ x: "-200%" }}
+						initial={{ x: "200%" }}
 						animate={{ x: 0 }}
-						transition={{ duration: 0.5, ease: "easeOut", delay: 2 }}
-						style={{
-							maxWidth: "800px",
-							height: "auto",
-							alignSelf: "stretch",
-						}}
+						transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+						style={{ maxWidth: "500px" }}
 					>
-						<Typography variant="h5" component="h5">
-							Особенности бизнес-коммуникации
-						</Typography>
-						<List>
-							{listItemData.map(
-								(item: ListItem_Props, i: number): JSX.Element => (
-									<ListItemAnimated
-										key={i}
-										text={item.text}
-										delayTime={item.delayTime}
-									/>
-								)
-							)}
-						</List>
+						<img width={"500"} src={image} alt="image" />
 					</motion.div>
-					<MouseParallaxChild
-						factorX={0.02}
-						factorY={0.02}
-						style={{ height: "100%" }}
-					>
-						<motion.div
-							initial={{ x: "200%" }}
-							animate={{ x: 0 }}
-							transition={{ duration: 0.5, ease: "easeOut", delay: 2 }}
-							style={{ maxWidth: "500px" }}
-						>
-							<img width={"500"} src={image} alt="image" />
-						</motion.div>
-					</MouseParallaxChild>
-				</Grid>
-			</motion.div>
-		</MouseParallaxChild>
+				</MouseParallaxChild>
+			</Grid>
+		</motion.div>
 	);
 };
 

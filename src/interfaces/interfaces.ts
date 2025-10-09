@@ -1,8 +1,3 @@
-export interface DashboardData {
-	pageTitle: string;
-	link: string;
-}
-
 export interface CardBlock1_6PropsInterface {
 	id: string | number;
 	title: string;

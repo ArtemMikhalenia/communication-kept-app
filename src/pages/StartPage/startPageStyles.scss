@@ -2,9 +2,9 @@
 
 .start-page {
 	position: relative;
-	height: 100%;
+	height: 100vh;
 
-	background-image: url("../../assets//images/backgrounds/entrance.jpg");
+	background-image: url("../../assets/images/backgrounds/entrance.jpg");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -18,10 +18,10 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
-		padding: 70px 0px 80px;
+		padding: 7vmin 0px 10vmin;
 
 		.start-header {
-			font-size: 7rem;
+			font-size: 10vmin;
 			text-shadow: 3px 1px 2px $color-white;
 		}
 
